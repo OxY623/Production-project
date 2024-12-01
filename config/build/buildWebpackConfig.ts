@@ -23,6 +23,6 @@ export function buildWebpackConfig(
     module: {
       rules: buildLoadersConfig(options),
     },
-    resolve: buildResolvesConfig(),
+    resolve: buildResolvesConfig(options),
   };
 }
