@@ -1,7 +1,8 @@
 @use './reset.scss';
 @use './variables/global.scss';
-@use './themes/dark.scss';
+
 @use './themes/normal.scss';
+@use './themes/dark.scss';
 
 .app {
   font-size: var(--font-m);

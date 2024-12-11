@@ -1,16 +1,19 @@
 type Mods = Record<string, boolean | string>;
+
 export function classNames(
-  className: string,
-  mods: Mods = {}, // по умолчанию пустой объект
-  additional: string[] = [], // по умолчанию пустой массив
+  className: string = '', // Указали значение по умолчанию
+  mods: Mods = {}, // Пустой объект по умолчанию
+  additional: (string | undefined | null)[] = [], // Указали расширенный тип
 ): string {
   return [
     className,
-    ...additional,
+    ...additional.filter((item): item is string => Boolean(item)), // Фильтруем undefined/null
     ...Object.entries(mods)
-      .filter(([_, value]) => Boolean(value))
+      .filter(([_, value]) => Boolean(value)) // Учитываем только truthy значения
       .map(([key]) => key),
-  ].join(' ');
+  ]
+    .filter(Boolean) // Убираем возможные пустые значения
+    .join(' '); // Склеиваем строки с пробелом
 }
 
 console.log(classNames('btn', { active: true, disabled: false }, ['extra']));
