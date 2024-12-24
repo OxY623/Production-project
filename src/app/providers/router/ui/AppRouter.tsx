@@ -1,21 +1,29 @@
-import { Route, Routes } from 'react-router-dom';
-// import { AboutPage } from 'pages/AboutPage';
-// import { MainPage } from 'pages/MainPage';
-import { Suspense } from 'react';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
+import {Route, Routes} from "react-router-dom";
+import {v4 as uuidv4} from "uuid";
+import LoadingSpinner from "shared/ui/LoadingSpinner/LoadingSpinner";
+import {Suspense} from "react";
+import {routeConfig} from "shared/config/routeConfig/routeConfig";
 
-function AppRouter() {
+const AppRouter = () => {
   return (
-    <Suspense fallback={<div>🌀 Loading...</div>}>
+    <Suspense fallback={<LoadingSpinner />}>
       <Routes>
-        {Object.values(routeConfig).map(({ path, element }) => {
-          return <Route path={path} element={element} />;
+        {Object.values(routeConfig).map(({path, element}) => {
+          return (
+            <Route
+              key={uuidv4()}
+              path={path}
+              element={
+                <Suspense fallback={<LoadingSpinner />}>
+                  <div className="page-wrapper">{element}</div>
+                </Suspense>
+              }
+            />
+          );
         })}
-        {/* <Route path='/about' element={<AboutPage />} />
-        <Route path='/' element={<MainPage />} /> */}
       </Routes>
     </Suspense>
   );
-}
+};
 
 export default AppRouter;

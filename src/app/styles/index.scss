@@ -1,12 +1,26 @@
-@use './reset.scss';
-@use './variables/global.scss';
+@use "./reset.scss";
+@use "./variables/global.scss";
 
-@use './themes/normal.scss';
-@use './themes/dark.scss';
+@use "./themes/normal.scss";
+@use "./themes/dark.scss";
+
+// @use "../../shared/styles/_mixins.scss";
+// @use "../../shared/styles/_variables.scss";
 
 .app {
   font-size: var(--font-m);
   background-color: var(--bg-color);
   color: var(--primary-color);
   height: 100vh;
+}
+
+.content-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: baseline;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
 }

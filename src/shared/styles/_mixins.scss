@@ -1,0 +1,35 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin gradient-text {
+  background: linear-gradient(to right, $color-primary, $color-secondary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin card {
+  background-color: $bg-card;
+  border-radius: $radius-lg;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: box-shadow $transition-base;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba($color-primary, 0.2);
+  }
+}
+
+@mixin button-primary {
+  padding: $spacing-xs $spacing-md;
+  background-color: rgba($color-primary, 0.9);
+  color: $text-primary;
+  border-radius: $radius-md;
+  transition: background-color $transition-base;
+
+  &:hover {
+    background-color: $color-primary;
+  }
+}

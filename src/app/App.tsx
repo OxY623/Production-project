@@ -1,21 +1,29 @@
-import { useTheme } from 'app/providers/ThemeProviders';
-import { ErrorBoundary } from './providers/ErrorBoundary';
-import { classNames } from '../shared/helpers/classNames/classNames';
-import './styles/index.scss';
-import { AppRouter } from './providers/router';
-import { Navbar } from 'widgets/Navbar';
+import {useTheme} from "app/providers/ThemeProviders";
+import {ErrorBoundary} from "./providers/ErrorBoundary";
+import {classNames} from "../shared/helpers/classNames/classNames";
+import {AppRouter} from "./providers/router";
+import {Navbar} from "widgets/Navbar";
+import "./styles/index.scss";
+import {Sidebar} from "widgets/Sidebar";
+import {Suspense} from "react";
+import LoadingSpinner from "shared/ui/LoadingSpinner/LoadingSpinner";
 
-function App(): JSX.Element {
-  const { toggleTheme, theme } = useTheme();
+const App = (): JSX.Element => {
+  const {theme} = useTheme();
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames("app", {}, [theme])}>
       <ErrorBoundary>
-        <Navbar />
-        <button onClick={toggleTheme}>TOGGLE THEME</button>
-        <AppRouter />
+        <Suspense fallback={<LoadingSpinner />}>
+          <Navbar />
+
+          <div className="content-page">
+            <Sidebar />
+            <AppRouter />
+          </div>
+        </Suspense>
       </ErrorBoundary>
     </div>
   );
-}
+};
 
 export default App;

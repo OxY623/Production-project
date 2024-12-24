@@ -1,5 +1,3 @@
-import { useTheme } from './lib/useTheme';
-import ThemeProvider from './ui/ThemeProvider';
-
-export { ThemeProvider };
-export { useTheme };
+export {default as ThemeProvider} from "./ui/ThemeProvider";
+// eslint-disable-next-line react-refresh/only-export-components
+export {useTheme} from "./lib/useTheme";
