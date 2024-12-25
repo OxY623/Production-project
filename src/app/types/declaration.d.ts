@@ -18,3 +18,8 @@ declare module "*.svg" {
 }
 
 declare const __IS_DEV__: boolean;
+
+declare module "eslint-plugin-i18n" {
+  const plugin: any;
+  export default plugin;
+}

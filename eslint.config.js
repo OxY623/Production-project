@@ -7,6 +7,7 @@ const eslintPrettier = require("eslint-plugin-prettier");
 const eslintConfigPrettier = require("eslint-config-prettier");
 const eslintReactRefresh = require("eslint-plugin-react-refresh");
 const eslintUnusedImports = require("eslint-plugin-unused-imports");
+const i18n = require("eslint-plugin-i18n");
 
 /** @type {require("eslint").Linter.FlatConfig[]} */
 module.exports = [
@@ -30,6 +31,7 @@ module.exports = [
       prettier: eslintPrettier,
       "react-refresh": eslintReactRefresh,
       "unused-imports": eslintUnusedImports,
+      i18n: i18n,
     },
     rules: {
       ...eslintPrettier.configs.recommended.rules,

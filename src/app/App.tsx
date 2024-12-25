@@ -5,13 +5,13 @@ import {AppRouter} from "./providers/router";
 import {Navbar} from "widgets/Navbar";
 import "./styles/index.scss";
 import {Sidebar} from "widgets/Sidebar";
-import {Suspense} from "react";
+import {FC, Suspense} from "react";
 import LoadingSpinner from "shared/ui/LoadingSpinner/LoadingSpinner";
 
-const App = (): JSX.Element => {
+const App: FC = () => {
   const {theme} = useTheme();
   return (
-    <div className={classNames("app", {}, [theme])}>
+    <div data-testid="app" className={classNames("app", {}, [theme])}>
       <ErrorBoundary>
         <Suspense fallback={<LoadingSpinner />}>
           <Navbar />
