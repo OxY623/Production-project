@@ -9,5 +9,10 @@ module.exports = {
     "^.+\\.tsx?$": ["ts-jest", {}], // Трансформация TypeScript файлов с ts-jest
   },
   rootDir: "../../", // Корень проекта
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
+  moduleNameMapper: {
+    "^app/(.*)$": "<rootDir>/src/app/$1",
+    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.js",
+  },
   testMatch: ["<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)"], // Шаблон поиска тестовых файлов
 };
