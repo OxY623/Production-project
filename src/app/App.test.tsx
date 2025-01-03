@@ -2,6 +2,28 @@
 // import "@testing-library/jest-dom";
 // import App from "./App";
 
+// jest.mock("app/providers/ThemeProviders", () => ({
+//   useTheme: jest.fn(() => ({
+//     theme: "dark", // Мокаем возвращаемое значение
+//     setTheme: jest.fn(), // Мокаем функцию
+//   })),
+// }));
+// describe("App Component", () => {
+//   test("renders learn react link", () => {
+//     screen.debug();
+//     render(<App />);
+//     const linkElement = screen.getByTestId("app");
+//     expect(linkElement).toBeInTheDocument();
+//     screen.debug();
+//   });
+
+//   test("should render App component with dark theme"),
+//     () => {
+//       const {container} = render(<App />);
+//       expect(container).toHaveTextContent("dark");
+//     };
+// });
+
 // describe("Component App", () => {
 //   it("should render the component", () => {
 //     render(<App />);
