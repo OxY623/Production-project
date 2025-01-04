@@ -11,6 +11,7 @@ import "./styles/index.scss";
 
 const App: FC = () => {
   const {theme} = useTheme();
+
   return (
     <div data-testid="app" className={classNames("app", {}, [theme])}>
       <ErrorBoundary>

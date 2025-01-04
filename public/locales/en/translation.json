@@ -2,5 +2,10 @@
   "Текстовый перевод": "test translation",
   "Перевод": "ENG",
   "Переключатель": "Toggle",
-  "Страница не найдена": "Page not found"
+  "Страница не найдена": "Page not found",
+  "граница ошибки": {
+    "заголовок": "Oops! Something went wrong.",
+    "сообщение": "Please try refreshing the page or come back later."
+  },
+  "Обновить страницу": "Update page"
 }
