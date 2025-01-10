@@ -1,4 +1,4 @@
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import * as cls from "./LangSwitcher.module.scss";
 import {FC} from "react";
 import {useTranslation} from "react-i18next";

@@ -1,4 +1,6 @@
-import {classNames} from "./classNames";
+// import {classNames} from "./classNames";
+import {classNames} from "shared/libs/classNames/classNames";
+import {ThemeButton} from "shared/ui/Button/Button.types";
 
 describe("Тестирование функции classNames", () => {
   // Тест с одним классом
@@ -49,6 +51,15 @@ describe("Тестирование функции classNames", () => {
   //       "baseClass active extraClass",
   //     );
   //   });
+
+  test("test c unit типом", () => {
+    let styles = {
+      clear: "clear",
+    };
+    expect(classNames("baseClass", {[styles[ThemeButton.CLEAR]]: true}, ["extraClass"])).toBe(
+      "baseClass extraClass clear",
+    );
+  });
 
   // Тест со строками в объекте
   test("test с числовыми значениями", () => {

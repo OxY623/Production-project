@@ -1,7 +1,7 @@
 import * as styles from "./ThemeSwitcher.module.scss";
 import React from "react";
 import {useTheme} from "app/providers/ThemeProviders";
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import DarkIcon from "shared/assets/icons/themeDark.svg";
 import LightIcon from "shared/assets/icons/themeLight.svg";
 import {Theme} from "app/providers/ThemeProviders/ui/ThemeContext";

@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {Link} from "react-router-dom";
 import * as cls from "./AppLink.module.scss";
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import {AppLinkTheme} from "./AppLink.types";
 import {AppLinkProps} from "./AppLink.types";
 

@@ -1,4 +1,4 @@
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import {FC} from "react";
 import * as cls from "./NotFoundPage.module.scss";

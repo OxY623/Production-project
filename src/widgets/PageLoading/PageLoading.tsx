@@ -1,4 +1,4 @@
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import * as cls from "./PageLoading.module.scss";
 import {FC} from "react";
 import LoadingSpinner from "../../shared/ui/LoadingSpinner/LoadingSpinner";

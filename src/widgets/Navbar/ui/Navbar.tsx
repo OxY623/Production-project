@@ -1,5 +1,5 @@
 // import {Link} from "react-router-dom";
-import {classNames} from "shared/helpers/classNames/classNames";
+import {classNames} from "shared/libs/classNames/classNames";
 import * as cls from "./Navbar.module.scss";
 import AppLink from "shared/ui/AppLink/AppLink";
 import {AppLinkTheme} from "shared/ui/AppLink/AppLink.types";

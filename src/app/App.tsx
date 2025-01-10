@@ -1,6 +1,6 @@
 import {useTheme} from "app/providers/ThemeProviders";
 import {ErrorBoundary} from "./providers/ErrorBoundary";
-import {classNames} from "../shared/helpers/classNames/classNames";
+import {classNames} from "../shared/libs/classNames/classNames";
 import {AppRouter} from "./providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";

@@ -48,7 +48,8 @@
     "src/**/*.ts", // Включаем все .ts файлы в папке src
     "src/**/*.tsx", // Включаем все .tsx файлы в папке src (React компоненты)
     "declaration.d.ts", // Включаем файл с глобальными типами
-    "webpack.config.ts" // Включаем конфигурацию Webpack для TypeScript
+    "webpack.config.ts",
+    "./config/jest/setupTests.ts" // Включаем конфигурацию Webpack для TypeScript
   ],
 
   // Устанавливает настройки для ts-node, если проект использует его для выполнения TypeScript напрямую.
