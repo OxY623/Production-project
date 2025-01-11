@@ -9,6 +9,7 @@
     "build:dev": "webpack --env mode=development",
     "prepare": "husky",
     "format": "prettier --write .",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "test:unit": "jest --config ./config/jest/jest.config.js",
     "lint-fix": "eslint ./src --fix",
     "lint-fix-and-test": "npm run lint-fix && npm run test:unit",
@@ -17,7 +18,8 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --update --verbose",
-    "test:ui:ok": "npx loki approve --update --verbose"
+    "test:ui:ok": "npx loki approve --update --verbose",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
   },
   "husky": {
     "hooks": {
