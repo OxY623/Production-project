@@ -42,12 +42,5 @@ jobs:
       - name: Check Storybook static folder
         run: ls -la storybook-static
 
-      - name: Start Storybook in the background
-        run: |
-          npm run storybook --port 48899 --host 0.0.0.0 & # Start Storybook in the background
-          npx wait-on http://0.0.0.0:48899 # Wait for Storybook to be fully started
-
-      - name: Run visual tests with Loki
-        run: npm run test:ui:ci
-        env:
-          REACT_URI: http://0.0.0.0:48899
+      - name: Start Storybook and run visual tests with Loki
+        run: npx start-server-and-test 'npm run storybook -- --port 48899 --host 0.0.0.0' http://0.0.0.0:48899 'npm run test:ui:ci'
