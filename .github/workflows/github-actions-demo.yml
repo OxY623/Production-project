@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3 # Используем более актуальную версию
+        uses: actions/setup-node@v3 # Using a more recent version
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -44,8 +44,8 @@ jobs:
 
       - name: Start Storybook in the background
         run: |
-          nohup npm run storybook --port 48899 --host 0.0.0.0 & # Запуск Storybook в фоновом режиме
-          sleep 5 # Даем время на запуск Storybook
+          npm run storybook --port 48899 --host 0.0.0.0 & # Start Storybook in the background
+          sleep 5 # Give time for Storybook to start
 
       - name: Run visual tests with Loki
         run: npm run test:ui:ci
