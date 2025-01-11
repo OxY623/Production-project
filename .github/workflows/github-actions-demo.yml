@@ -42,7 +42,13 @@ jobs:
       - name: Check Storybook static folder
         run: ls -la storybook-static
 
-      - name: Start Storybook and run visual tests with Loki
-        run: npx start-server-and-test 'npm run storybook -- --port 6006 --host 0.0.0.0' http://0.0.0.0:6006 'npm run test:ui:ci'
+      - name: Start Storybook in the background
+        run: npm run storybook -- --port 6006 --host 0.0.0.0 &
+
+      - name: Wait for Storybook to start
+        run: npx wait-on http://0.0.0.0:6006 --timeout 300000
+
+      - name: Run visual tests with Loki
+        run: npm run test:ui:ci
         env:
           REACT_URI: http://0.0.0.0:6006
