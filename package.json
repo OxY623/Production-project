@@ -19,7 +19,7 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --update --verbose",
     "test:ui:ok": "npx loki approve --update --verbose",
-    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
+    "test:ui:ci": "loki --requireReference --reactUri file:/home/runner/work/Production-project/Production-project/storybook-static"
   },
   "husky": {
     "hooks": {
