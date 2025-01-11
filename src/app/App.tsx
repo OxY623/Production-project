@@ -1,5 +1,5 @@
 import {useTheme} from "app/providers/ThemeProviders";
-import {ErrorBoundary} from "./providers/ErrorBoundary";
+import {TranslatedErrorBoundary} from "./providers/ErrorBoundary";
 import {classNames} from "../shared/libs/classNames/classNames";
 import {AppRouter} from "./providers/router";
 import {Navbar} from "widgets/Navbar";
@@ -14,7 +14,7 @@ const App: FC = () => {
 
   return (
     <div data-testid="app" className={classNames("app", {}, [theme])}>
-      <ErrorBoundary>
+      <TranslatedErrorBoundary>
         <Suspense fallback={<PageLoading />}>
           <Navbar />
           <div className="content-page">
@@ -22,7 +22,7 @@ const App: FC = () => {
             <AppRouter />
           </div>
         </Suspense>
-      </ErrorBoundary>
+      </TranslatedErrorBoundary>
     </div>
   );
 };

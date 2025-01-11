@@ -18,7 +18,7 @@ class ErrorBoundary extends React.Component<Props, State> {
     this.handleUpdatePage = this.handleUpdatePage.bind(this);
   }
 
-  static getDerivedStateFromError(error: Error): State {
+  static getDerivedStateFromError(_error: Error): State {
     return {hasError: true};
   }
 
@@ -50,4 +50,5 @@ class ErrorBoundary extends React.Component<Props, State> {
   }
 }
 
-export default withTranslation()(ErrorBoundary);
+const TranslatedErrorBoundary = withTranslation()(ErrorBoundary);
+export {TranslatedErrorBoundary};
