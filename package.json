@@ -20,7 +20,7 @@
     "test:ui": "npx loki test --update --verbose",
     "test:ui:ok": "npx loki approve",
     "test:ui:ci": "loki --requireReference --reactUri $REACT_URI --chromeFlags='--disable-gpu' --timeout=60000",
-    "test:ui:ci:true": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:true": "storybook:build && loki --requireReference --reactUri file:./storybook-static",
     "test-ci": "concurrently --kill-others --raw --success first 'loki --requireReference --reactUri file:./storybook-static' 'deelay'"
   },
   "husky": {
