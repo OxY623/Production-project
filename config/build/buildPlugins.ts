@@ -5,7 +5,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import {BundleAnalyzerPlugin} from "webpack-bundle-analyzer";
 
 export function buildPluginsConfig({paths, isDev}: BuildOptions): webpack.WebpackPluginInstance[] {
-  return [
+  let plugins = [
     new HtmlWebpackPlugin({
       // title: 'My App',
       template: paths.html,
@@ -16,9 +16,16 @@ export function buildPluginsConfig({paths, isDev}: BuildOptions): webpack.Webpac
       chunkFilename: "[id].[contenthash].css", // Для чанков
     }),
     new webpack.DefinePlugin({__IS_DEV__: JSON.stringify(isDev)}),
-    new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-    }),
   ];
+
+  if (isDev) {
+    plugins.push(
+      new webpack.HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin({
+        openAnalyzer: false,
+      }),
+    );
+  }
+
+  return plugins;
 }
