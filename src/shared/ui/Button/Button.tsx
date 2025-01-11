@@ -1,10 +1,10 @@
 import {classNames} from "shared/libs/classNames/classNames";
-import {FC} from "react";
+import React from "react";
 import {ButtonProps} from "./Button.types";
 import * as styles from "./Button.module.scss";
 import {ThemeButton} from "./Button.types";
 
-const Button: FC<ButtonProps> = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {className, children, theme, ...otherProps} = props;
 
   const buttonClassName = classNames(
@@ -20,4 +20,4 @@ const Button: FC<ButtonProps> = (props) => {
   );
 };
 
-export default Button;
+export {Button};

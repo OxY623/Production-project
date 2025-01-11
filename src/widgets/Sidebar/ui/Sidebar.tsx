@@ -1,6 +1,6 @@
 import {classNames} from "shared/libs/classNames/classNames";
 import * as styles from "./Sidebar.module.scss";
-import {FC, useState} from "react";
+import React, {useState} from "react";
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {LangSwitcher} from "widgets/LangSwitcher";
 import {useTranslation} from "react-i18next";
@@ -9,7 +9,7 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar: FC<SidebarProps> = ({className}) => {
+export const Sidebar: React.FC<SidebarProps> = ({className}) => {
   const [collapsed, setCollapsed] = useState(false);
   const {t} = useTranslation();
 

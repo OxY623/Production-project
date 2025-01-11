@@ -2,7 +2,7 @@ import {Route, Routes} from "react-router-dom";
 import {v4 as uuidv4} from "uuid";
 import {Suspense} from "react";
 import {routeConfig} from "shared/config/routeConfig/routeConfig";
-import {PageLoading} from "widgets/PageLoading/PageLoading";
+import {PageLoading} from "widgets/PageLoading/ui/PageLoading";
 
 const AppRouter = () => {
   return (

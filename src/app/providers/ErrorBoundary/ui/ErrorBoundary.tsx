@@ -1,7 +1,7 @@
 import React, {Suspense} from "react";
 import {withTranslation, WithTranslation} from "react-i18next";
 import * as styles from "./ErrorBoundary.module.scss";
-import Button from "shared/ui/Button/Button";
+import {Button} from "shared/ui/Button/Button";
 
 interface Props extends WithTranslation {
   children: React.ReactNode;

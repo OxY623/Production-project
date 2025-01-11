@@ -3,13 +3,13 @@ import {classNames} from "shared/libs/classNames/classNames";
 import * as cls from "./Navbar.module.scss";
 import AppLink from "shared/ui/AppLink/AppLink";
 import {AppLinkTheme} from "shared/ui/AppLink/AppLink.types";
-import {FC} from "react";
+import React from "react";
 import {useTranslation} from "react-i18next";
 interface NavbarProps {
   className?: string;
 }
 
-const Navbar: FC = ({className}: NavbarProps) => {
+const Navbar: React.FC = ({className}: NavbarProps) => {
   const {t} = useTranslation("navbar");
   return (
     <nav className={classNames(cls.navbar, {}, [])}>

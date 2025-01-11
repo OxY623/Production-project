@@ -1,7 +1,11 @@
-@use "./reset";
-@use "./variables/global";
-@use "./themes/normal";
-@use "./themes/dark";
+@use "./reset" as *;
+@use "./variables/global" as *;
+@use "./themes/normal" as *;
+@use "./themes/dark" as *;
+// @import "./reset";
+// @import "./variables/global";
+// @import "./themes/normal";
+// @import "./themes/dark";
 
 // @use "../../shared/styles/_mixins.scss";
 // @use "../../shared/styles/_variables.scss";

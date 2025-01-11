@@ -5,7 +5,7 @@ import {AppRouter} from "./providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
 import {FC, Suspense} from "react";
-import {PageLoading} from "widgets/PageLoading/PageLoading";
+import {PageLoading} from "widgets/PageLoading/ui/PageLoading";
 
 import "./styles/index.scss";
 

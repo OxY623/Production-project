@@ -1,6 +1,7 @@
 import * as styles from "./LoadingSpinner.module.scss";
+import React from "react";
 
-const LoadingSpinner = () => {
+const LoadingSpinner: React.FC = () => {
   return (
     <div className={styles["lds-grid"]}>
       <div />

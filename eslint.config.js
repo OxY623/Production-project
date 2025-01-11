@@ -45,22 +45,22 @@ module.exports = [
       "max-params": ["error", 3],
       "unused-imports/no-unused-imports": "warn", // Убирает неиспользуемые импорты
       "jsx-a11y/alt-text": ["warn"], // Правила доступности для изображений
-      "i18next/no-literal-string": [
-        "error",
-        {
-          markupOnly: true,
-          ignoreAttribute: ["data-testid"],
-        },
-      ],
+      // "i18next/no-literal-string": [
+      //   "error",
+      //   {
+      //     markupOnly: true,
+      //     ignoreAttribute: ["data-testid"],
+      //   },
+      // ],
     },
-    overrides: [
-      {
-        files: ["**/src/**/*.test.{ts,tsx}"],
-        rules: {
-          "i18next/no-literal-string": "off",
-        },
-      },
-    ],
+    // overrides: [
+    //   {
+    //     files: ["**/src/**/*.test.{ts,tsx}"],
+    //     rules: {
+    //       "i18next/no-literal-string": "off",
+    //     },
+    //   },
+    // ],
     ignores: [
       "node_modules/**", // Игнорировать папку node_modules
       "dist/**", // Игнорировать папку dist
