@@ -1,9 +1,11 @@
 name: linting, testing, building
+
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+
 jobs:
   pipeline:
     runs-on: ubuntu-latest
@@ -13,28 +15,38 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3 # Используем более актуальную версию
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install dependencies
         run: npm install
+
       - name: Build production project
         run: npm run build:prod
+
       - name: Linting TypeScript
         run: npm run lint:ts
+
       - name: Linting SCSS
         run: npm run lint:scss
+
       - name: Run unit tests
         run: npm run test:unit
+
       - name: Build Storybook
         run: npm run storybook:build
+
       - name: Check Storybook static folder
         run: ls -la storybook-static
+
       - name: Start Storybook in the background
-        run: npm run storybook & # Запуск в фоновом режиме
-      - name: Wait for Storybook to start
-        run: sleep 10 # Ожидание, чтобы Storybook успел запуститься
+        run: |
+          nohup npm run storybook --port 48899 --host 0.0.0.0 & # Запуск Storybook в фоновом режиме
+          sleep 5 # Даем время на запуск Storybook
+
       - name: Run visual tests with Loki
         run: npm run test:ui:ci
 # name: linting, testing, building
