@@ -19,7 +19,9 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --update --verbose",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri $REACT_URI --chromeFlags='--disable-gpu' --timeout=60000"
+    "test:ui:ci": "loki --requireReference --reactUri $REACT_URI --chromeFlags='--disable-gpu' --timeout=60000",
+    "test:ui:ci:true": "build-storybook && loki --requireReference --reactUri file:./storybook-static",
+    "test-ci": "concurrently --kill-others --raw --success first 'loki --requireReference --reactUri file:./storybook-static' 'deelay'"
   },
   "husky": {
     "hooks": {
@@ -66,6 +68,7 @@
     "@typescript-eslint/parser": "^8.18.1",
     "babel-loader": "^9.2.1",
     "babel-plugin-i18next-extract": "^1.0.0",
+    "concurrently": "^9.1.2",
     "css-loader": "^7.1.2",
     "daisyui": "^4.12.22",
     "eslint": "^9.17.0",
@@ -109,6 +112,7 @@
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
+    "delay": "^6.0.0",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.1",
