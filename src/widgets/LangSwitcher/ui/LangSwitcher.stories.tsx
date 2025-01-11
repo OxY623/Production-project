@@ -3,7 +3,6 @@ import {LangSwitcher} from "./LangSwitcher";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProviders/ui/ThemeContext";
 
-// Метаданные Storybook для компонента Button
 const meta: Meta<typeof LangSwitcher> = {
   title: "widget/LangSwitcher",
   component: LangSwitcher,

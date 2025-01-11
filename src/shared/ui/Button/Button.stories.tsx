@@ -55,7 +55,6 @@ export const PrimaryDark: Story = {
   },
 };
 
-// История с темой Dark
 export const ClearDark: Story = {
   parameters: {theme: Theme.DARK},
   decorators: [ThemeDecorator],
