@@ -1,1 +1,1 @@
-npm run unit
+npm run test:unit
