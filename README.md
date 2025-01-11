@@ -10,5 +10,3 @@
 - Добавление плагинов Babel и Extract
 - Настройка ESLint и Stylelint
 - Настройка CI
-
-npx start-server-and-test 'npm run storybook -- --port 48899 --host 0.0.0.0' http://0.0.0.0:48899 'npm run test:ui:ci'

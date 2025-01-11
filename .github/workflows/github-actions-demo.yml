@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
@@ -42,5 +42,14 @@ jobs:
       - name: Check Storybook static folder
         run: ls -la storybook-static
 
-      - name: Start Storybook and run visual tests with Loki
-        run: npm run test:ui:ci:true
+      - name: Install Loki dependencies
+        run: npm install --save-dev @loki/cli
+
+      - name: Start Storybook
+        run: npm run storybook &
+
+      - name: Wait for Storybook to start
+        run: npx wait-on http://localhost:6006
+
+      - name: Run visual tests with Loki
+        run: npx loki test
