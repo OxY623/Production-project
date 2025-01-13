@@ -2,9 +2,9 @@ import type {StorybookConfig} from "@storybook/react-webpack5";
 
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  core: {
-    builder: "webpack5", // Убедитесь, что используется Webpack 5
-  },
+  // core: {
+  //   builder: "webpack5", // Убедитесь, что используется Webpack 5
+  // },
   addons: [
     "@storybook/addon-webpack5-compiler-swc",
     "@storybook/addon-onboarding",
