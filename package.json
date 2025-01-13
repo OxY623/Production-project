@@ -19,7 +19,10 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --update --verbose",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "test:ui:report": "npm run test:ui:json && npm run test:ui:html"
   },
   "husky": {
     "hooks": {
@@ -92,6 +95,7 @@
     "loki": "^0.35.1",
     "mini-css-extract-plugin": "^2.9.2",
     "prettier": "^3.4.2",
+    "reg-cli": "^0.18.10",
     "regenerator-runtime": "^0.14.1",
     "sass": "^1.81.0",
     "sass-loader": "^16.0.3",

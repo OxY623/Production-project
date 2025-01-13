@@ -1,6 +1,6 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import {Button} from "./Button";
-import {ThemeButton} from "./Button.types";
+import {ButtonSize, ThemeButton} from "./Button.types";
 import ThemeDecorator from "shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "app/providers/ThemeProviders/ui/ThemeContext";
 
@@ -25,29 +25,86 @@ export const Clear: Story = {
   },
 };
 
-// export const Outline: Story = {
-//   args: {
-//     children: "Outline Button",
-//     theme: ThemeButton.OUTLINE,
-//   },
-// };
+export const Outline: Story = {
+  args: {
+    children: "Outline Button",
+    theme: ThemeButton.OUTLINE,
+  },
+};
 
-// export const PrimaryDark: Story = {
-//   parameters: {theme: Theme.DARK},
-//   decorators: [ThemeDecorator],
-//   args: {
-//     children: "Primary Dark",
-//   },
-// };
+export const OutlineL: Story = {
+  args: {
+    children: "Outline L Button",
+    theme: ThemeButton.OUTLINE,
+    size: ButtonSize.L,
+  },
+};
 
-// export const ClearDark: Story = {
-//   parameters: {theme: Theme.DARK},
-//   decorators: [ThemeDecorator],
-//   args: {
-//     children: "Clear Dark",
-//     theme: ThemeButton.CLEAR,
-//   },
-// };
+export const OutlineXL: Story = {
+  args: {
+    children: "Outline XL Button",
+    theme: ThemeButton.OUTLINE,
+    size: ButtonSize.XL,
+  },
+};
+
+export const Background: Story = {
+  args: {
+    children: "Background Button",
+    theme: ThemeButton.BACKGROUND,
+  },
+};
+
+export const BackgroundInverted: Story = {
+  args: {
+    children: "Background Inverted Button",
+    theme: ThemeButton.BACKGROUND_INVERTED,
+  },
+};
+
+export const SquareM: Story = {
+  args: {
+    children: ">",
+    theme: ThemeButton.BACKGROUND,
+    square: true,
+    size: ButtonSize.M,
+  },
+};
+
+export const SquareL: Story = {
+  args: {
+    children: ">",
+    theme: ThemeButton.BACKGROUND,
+    square: true,
+    size: ButtonSize.L,
+  },
+};
+
+export const SquareXL: Story = {
+  args: {
+    children: ">",
+    theme: ThemeButton.BACKGROUND,
+    square: true,
+    size: ButtonSize.XL,
+  },
+};
+
+export const PrimaryDark: Story = {
+  parameters: {theme: Theme.DARK},
+  decorators: [ThemeDecorator],
+  args: {
+    children: "Primary Dark",
+  },
+};
+
+export const ClearDark: Story = {
+  parameters: {theme: Theme.DARK},
+  decorators: [ThemeDecorator],
+  args: {
+    children: "Clear Dark",
+    theme: ThemeButton.CLEAR,
+  },
+};
 
 export const OutlineDark: Story = {
   parameters: {theme: Theme.DARK},

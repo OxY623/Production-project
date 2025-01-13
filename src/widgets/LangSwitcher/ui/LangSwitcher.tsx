@@ -7,9 +7,10 @@ import {Button} from "shared/ui/Button/Button";
 
 interface LangSwitcherProps {
   className?: string;
+  short?: boolean;
 }
 
-const LangSwitcher: React.FC = ({className}: LangSwitcherProps) => {
+const LangSwitcher: React.FC<LangSwitcherProps> = ({className, short}) => {
   const {t, i18n} = useTranslation();
 
   const toggle = () => {
@@ -21,7 +22,7 @@ const LangSwitcher: React.FC = ({className}: LangSwitcherProps) => {
       theme={ThemeButton.CLEAR}
       onClick={toggle}
     >
-      {t("Перевод")}
+      {t(short ? "Короткий перевод" : "Перевод")}
     </Button>
   );
 };
