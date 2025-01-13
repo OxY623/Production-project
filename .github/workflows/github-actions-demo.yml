@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [22.9.0]
 
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Install Loki CLI globally
         run: npm install -g loki
@@ -37,23 +37,5 @@ jobs:
       - name: Run unit tests
         run: npm run test:unit
 
-      - name: Build Storybook
-        run: npm run storybook:build
-
-      - name: Check Storybook static folder
-        run: ls -la storybook-static
-
-      - name: Start Storybook in the background
-        run: npm run storybook -- --port 6006 --host 0.0.0.0 &
-
-      - name: Wait for Storybook to start
-        run: npx wait-on http://0.0.0.0:6006 --timeout 300000
-
-      - name: Run visual tests with Loki
-        run: |
-          # Wait for Storybook to be fully ready
-          npx wait-on http://0.0.0.0:6006 --timeout 60000
-          # Run Loki visual tests
-          loki --requireReference --reactUri http://0.0.0.0:6006 --chromeFlags='--disable-gpu' --timeout=60000 --headless=false
-        env:
-          REACT_URI: http://0.0.0.0:6006
+      - name: Build Storybook & visual tests with Loki
+        run: npm run storybook:build && npm run test:ui:ci

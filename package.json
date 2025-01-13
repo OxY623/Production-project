@@ -19,7 +19,7 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "test:ui": "npx loki test --update --verbose",
     "test:ui:ok": "npx loki approve",
-    "test:ui:ci": "loki --requireReference --reactUri $REACT_URI --chromeFlags='--disable-gpu' --timeout=60000"
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static"
   },
   "husky": {
     "hooks": {
