@@ -11,11 +11,16 @@
 // @use "../../shared/styles/_mixins.scss";
 // @use "../../shared/styles/_variables.scss";
 
-.app {
+body {
   font-size: var(--font-m);
-  background-color: var(--bg-color);
   color: var(--primary-color);
-  height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.app {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  color: var(--primary-color);
 }
 
 .content-page {

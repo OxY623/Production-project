@@ -8,6 +8,7 @@ const eslintConfigPrettier = require("eslint-config-prettier");
 const eslintReactRefresh = require("eslint-plugin-react-refresh");
 const eslintUnusedImports = require("eslint-plugin-unused-imports");
 const i18n = require("eslint-plugin-i18n");
+const reactHooks = requre("react-hooks);
 
 /** @type {require("eslint").Linter.FlatConfig[]} */
 module.exports = [
@@ -32,6 +33,7 @@ module.exports = [
       "react-refresh": eslintReactRefresh,
       "unused-imports": eslintUnusedImports,
       i18n: i18n,
+      "react-hooks": reactHooks
     },
     rules: {
       ...eslintPrettier.configs.recommended.rules,
@@ -43,6 +45,8 @@ module.exports = [
       "react/self-closing-comp": ["error", {component: true, html: true}],
       "max-lines": ["warn", {max: 124}],
       "max-params": ["error", 3],
+      "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+      "react-hooks/exhaustive-deps": "error", // Checks effect dependencies
       "unused-imports/no-unused-imports": "warn", // Убирает неиспользуемые импорты
       "jsx-a11y/alt-text": ["warn"], // Правила доступности для изображений
       // "i18next/no-literal-string": [
