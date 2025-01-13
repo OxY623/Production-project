@@ -63,6 +63,7 @@ jobs:
         run: npm install
       - name: build production project
         run: npm run build:prod
+<<<<<<< HEAD
         if: always()
       - name: linting typescript
         run: npm run lint:ts
@@ -79,3 +80,15 @@ jobs:
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
+=======
+      - name: linting typescript
+        run: npm run lint:ts
+      - name: linting css
+        run: npm run lint:scss
+      - name: unit testing
+        run: npm run test:unit
+      - name: build storybook
+        run: npm run storybook:build
+      - name: screenshot testing
+        run: npm run test:ui:ci
+>>>>>>> 48f7019d3e0e23cc0a50fc57880c79dec5c8d02c
