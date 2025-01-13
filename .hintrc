@@ -1,0 +1,8 @@
+{
+  "extends": ["development"],
+  "hints": {
+    "button-type": "off",
+    "typescript-config/consistent-casing": "off",
+    "no-inline-styles": "off",
+  },
+}
