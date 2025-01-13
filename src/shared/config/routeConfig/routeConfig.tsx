@@ -2,6 +2,7 @@ import AboutPage from "pages/AboutPage/ui/AboutPage";
 import {NotFoundPage} from "pages/NotFoundPage";
 import {MainPage} from "pages/MainPage";
 import {RouteProps} from "react-router-dom";
+import React from "react";
 
 export enum AppRoutes {
   MAIN = "main",
