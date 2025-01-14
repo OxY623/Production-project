@@ -6,7 +6,7 @@ const MainPage: React.FC = () => {
   const {t} = useTranslation("main");
   return (
     <div>
-      {t("Главная страница")}
+      <h2>{t("Главная страница")}</h2>
       <BugButton />
     </div>
   );
