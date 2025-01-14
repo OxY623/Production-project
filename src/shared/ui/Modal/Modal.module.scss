@@ -4,9 +4,20 @@
   bottom: 0;
   right: 0;
   left: 0;
-
   opacity: 0;
   pointer-events: none;
+  z-index: -1;
+  color: var(--primary-color);
+}
+
+.Modal.light {
+  --bg-color: #090949;
+  --primary-color: #04ff04;
+}
+
+.Modal.dark {
+  --bg-color: #090949;
+  --primary-color: #04ff04;
 }
 
 .overlay {
@@ -23,7 +34,7 @@
   border-radius: 12px;
   background-color: var(--bg-color);
   max-width: 60%;
-  transform: scale(0.5);
+  // transform: scale(0.5);
   transition: ease 0.3s transform;
 }
 

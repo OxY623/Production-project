@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect, useCallback} from "react";
 import {classNames} from "shared/libs/classNames/classNames";
 import * as styles from "./Modal.module.scss";
 import {Portal} from "../Portal/Portal";
+import {useTheme} from "app/providers/ThemeProviders";
 
 interface ModalProps {
   className?: string;
@@ -15,13 +16,15 @@ const ANIMATION_DELAY = 300;
 const Modal: React.FC<ModalProps> = ({className, children, onClose, isOpen}) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const {theme} = useTheme();
 
   const mods: Record<string, boolean> = {
-    [styles.opened]: isOpen || false,
-    [styles.isClosing]: isClosing,
+    [styles.opened]: !!isOpen,
+    [styles.isClosing]: !!isClosing,
+    [styles[theme]]: !!theme,
   };
 
-  const closeHandler = () => {
+  const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
       timerRef.current = setTimeout(() => {
@@ -29,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({className, children, onClose, isOpen}) => 
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
-  };
+  }, [onClose]);
 
   const onContentClick = (event: React.MouseEvent) => {
     event.stopPropagation();
