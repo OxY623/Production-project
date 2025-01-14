@@ -79,7 +79,6 @@ jobs:
       - name: screenshot testing
         run: npm run test:ui:ci
         if: always()
-      -name: Update reference screenshots if tests fail
+      - name: Update reference screenshots if tests fail
         if: failure()
-        run: loki update --reactUri="file:./storybook-static" 
- 
+        run: npx loki update --reactUri="file:./storybook-static"
