@@ -33,6 +33,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "lint-fix",
+      "lint:scss:fix",
       "tsc --noEmit",
       "eslint --fix",
       "prettier --write"

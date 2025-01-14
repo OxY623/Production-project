@@ -4,7 +4,7 @@ import {classNames} from "../shared/libs/classNames/classNames";
 import {AppRouter} from "./providers/router";
 import {Navbar} from "widgets/Navbar";
 import {Sidebar} from "widgets/Sidebar";
-import React, {useState, Suspense} from "react";
+import React, {Suspense} from "react";
 //import {Modal} from "shared/ui/Modal/Modal";
 import {PageLoading} from "widgets/PageLoading/ui/PageLoading";
 
