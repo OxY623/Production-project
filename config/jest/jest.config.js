@@ -2,6 +2,9 @@ const path = require("path");
 
 /** @type {import('ts-jest').JestConfigWithTsJest} **/
 module.exports = {
+  globals: {
+    __IS_DEV__: true,
+  },
   testEnvironment: "jest-environment-jsdom", // Используем jsdom для тестирования
   clearMocks: true, // Очищаем моковые данные между тестами
   coveragePathIgnorePatterns: ["\\node_modules\\", "\\dist\\"], // Игнорируем папки

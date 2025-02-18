@@ -5,6 +5,7 @@ import ThemeProvider from "./app/providers/ThemeProviders/ui/ThemeProvider";
 import "app/styles/index.scss";
 import App from "./app/App";
 import "./shared/config/i18n/i18n";
+import {StoreProvider} from "app/providers/StoreProvider";
 
 const element = document.getElementById("root");
 
@@ -17,11 +18,13 @@ const root = createRoot(element);
 root.render(
   (
     <StrictMode>
-      <BrowserRouter>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
-      </BrowserRouter>
+      <StoreProvider>
+        <BrowserRouter>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </BrowserRouter>
+      </StoreProvider>
     </StrictMode>
   ) as React.ReactElement<typeof App>,
 );
