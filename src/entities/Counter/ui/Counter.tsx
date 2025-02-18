@@ -22,9 +22,13 @@ const Counter = (props: Props) => {
   return (
     <div className="">
       Counter
-      <h1>Value = {counterValue}</h1>
-      <Button onClick={increment}>Increment</Button>
-      <Button onClick={decrement}>Decrement</Button>
+      <h1 data-testid="counter">Value = {counterValue}</h1>
+      <Button data-testid="increment" onClick={increment}>
+        Increment
+      </Button>
+      <Button data-testid="decrement" onClick={decrement}>
+        Decrement
+      </Button>
     </div>
   );
 };
