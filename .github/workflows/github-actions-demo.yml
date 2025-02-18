@@ -1,49 +1,7 @@
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
-
-# jobs:
-#   pipeline:
-#     runs-on: ubuntu-latest
-#     strategy:
-#       matrix:
-#         node-version: [22.9.0]
-
-#     steps:
-#       - uses: actions/checkout@v3
-
-#       - name: Setup Node.js
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-
-#       - name: Install dependencies
-#         run: npm ci
-
-#       - name: Install Loki CLI globally
-#         run: npm install -g loki
-
-#       - name: Build production project
-#         run: npm run build:prod
-
-#       - name: Linting TypeScript
-#         run: npm run lint:ts
-
-#       - name: Linting SCSS
-#         run: npm run lint:scss
-
-#       - name: Run unit tests
-#         run: npm run test:unit
-
-#       - name: Build Storybook & visual tests with Loki
-#         run: npm run storybook:build && npm run test:ui:ci
-
 name: linting, testing, building
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
     branches: [main]
 jobs:
@@ -55,28 +13,34 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Staring Node.js ${{ matrix.node-version }}
+      - name: Starting Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install modules
+      - name: Install modules
         run: npm install
-      - name: build production project
+      - name: Build production project
         run: npm run build:prod
         if: always()
-      - name: linting typescript
+      - name: Linting TypeScript
         run: npm run lint:ts
         if: always()
-      - name: linting css
+      - name: Linting SCSS
         run: npm run lint:scss
         if: always()
-      - name: unit testing
+      - name: Unit testing
         run: npm run test:unit
         if: always()
-      - name: build storybook
+      - name: Build Storybook
         run: npm run storybook:build
         if: always()
-      - name: screenshot testing
+      - name: Check if Storybook build is successful
+        run: ls -alh ./storybook-static
+      - name: Wait for Storybook build to be available
+        run: sleep 10
+      - name: Update reference screenshots
+        run: npx loki update --reactUri="file:./storybook-static"
+      - name: Screenshot testing
         run: npm run test:ui:ci
         if: always()
       - name: Update reference screenshots if tests fail

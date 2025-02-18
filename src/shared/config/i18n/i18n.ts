@@ -15,7 +15,8 @@ i18n
   .use(initReactI18next) // bind react-i18next to the instance
 
   .init({
-    fallbackLng: "ru",
+    lng: "ru", // или 'en'
+    fallbackLng: "en",
 
     debug: __IS_DEV__ ? true : false,
 
