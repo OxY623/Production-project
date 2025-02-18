@@ -5,7 +5,6 @@ import ThemeProvider from "./app/providers/ThemeProviders/ui/ThemeProvider";
 import "app/styles/index.scss";
 import App from "./app/App";
 import "./shared/config/i18n/i18n";
-import {Store} from "lucide-react";
 import {StoreProvider} from "app/providers/StoreProvider";
 
 const element = document.getElementById("root");
