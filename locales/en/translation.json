@@ -1,0 +1,14 @@
+{
+  "Текстовый перевод": "test translation",
+  "Перевод": "English",
+  "Короткий перевод": "Eng",
+  "Переключатель": "Toggle",
+  "Страница не найдена": "Page not found",
+  "граница ошибки": {
+    "заголовок": "Oops! Something went wrong.",
+    "сообщение": "Please try refreshing the page or come back later."
+  },
+  "Обновить страницу": "Update page",
+  "Главная станица": "Main page",
+  "О нас": "About us"
+}
