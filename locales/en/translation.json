@@ -10,5 +10,15 @@
   },
   "Обновить страницу": "Update page",
   "Главная станица": "Main page",
-  "О нас": "About us"
+  "О нас": "About us",
+  "Пароль": "Password",
+  "Логин": "Login",
+  "Выход": "Logout",
+  "Вход": "Login",
+  "Регистрация": "Registration",
+  "Вход в систему": "Login to the system",
+  "Забыли пароль": "Forgot password?",
+  "Зарегистрироваться": "Sign up",
+  "Введите логин": "Enter login",
+  "Введите пароль": "Enter password"
 }

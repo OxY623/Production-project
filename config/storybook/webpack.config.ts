@@ -21,7 +21,8 @@ export default ({config}: {config: webpack.Configuration}) => {
   //   shared: path.resolve(__dirname, "../src/shared"),
   // };
 
-  config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+  config.module = config.module || {rules: []};
+  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
     if (/svg/.test(rule.test as string)) {
       return {...rule, exclude: /\.svg$/i};
     }

@@ -5,17 +5,21 @@ import React, {useCallback, useState} from "react";
 import {useTranslation} from "react-i18next";
 import {Button} from "shared/ui/Button/Button";
 import {ThemeButton} from "shared/ui/Button/Button.types";
-import {Modal} from "shared/ui/Modal/Modal";
+import {LoginModal} from "features/AuthByUserName";
 interface NavbarProps {
   className?: string;
 }
 
-const Navbar: React.FC = ({className}: NavbarProps) => {
+const Navbar = ({className}: NavbarProps) => {
   const {t} = useTranslation("navbar");
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
-  const onToggleModal = useCallback(() => {
-    setIsAuthModal((prev) => !prev);
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
+
+  const onShowModal = useCallback(() => {
+    setIsAuthModal(true);
   }, []);
 
   return (
@@ -25,14 +29,15 @@ const Navbar: React.FC = ({className}: NavbarProps) => {
           <Button theme={ThemeButton.CLEAR_INVERTED}>Место ссылки</Button>
         </li>
         <li>
-          <Button onClick={onToggleModal} theme={ThemeButton.CLEAR_INVERTED}>
+          <Button onClick={onShowModal} theme={ThemeButton.CLEAR_INVERTED}>
             {t("Войти")}
           </Button>
-          <Modal isOpen={isAuthModal} onClose={onToggleModal}>
+          {/* <Modal isOpen={isAuthModal} onClose={onToggleModal}>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, in voluptatem
             consequatur nostrum a, quisquam voluptates minus voluptatum quasi tempora hic deserunt
             voluptatibus vel quos, sunt atque incidunt ullam quod.
-          </Modal>
+          </Modal> */}
+          <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         </li>
       </ul>
     </nav>
