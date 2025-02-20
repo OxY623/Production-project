@@ -1,4 +1,4 @@
-import {screen} from "@testing-library/react";
+import {fireEvent, screen} from "@testing-library/react";
 import {Counter} from "./Counter";
 import {componentRender} from "shared/config/test/componentRender/componentRender";
 
@@ -8,19 +8,19 @@ describe("Counter Tests", () => {
     expect(screen.getByTestId("counter")).toHaveTextContent("Value = 10");
   });
 
-  test("increment", () => {
+  test("increment", async () => {
     componentRender(<Counter />, {initialState: {counter: {value: 10}}});
     expect(screen.getByTestId("counter")).toHaveTextContent("Value = 10");
     const incrementBtn = screen.getByTestId("increment");
-    incrementBtn.click();
-    expect(screen.getByTestId("counter")).toHaveTextContent("Value = 11");
+    fireEvent.click(incrementBtn); //incrementBtn.click();
+    expect(await screen.findByTestId("counter")).toHaveTextContent("Value = 11");
   });
 
-  test("decrement", () => {
+  test("decrement", async () => {
     componentRender(<Counter />, {initialState: {counter: {value: 10}}});
     expect(screen.getByTestId("counter")).toHaveTextContent("Value = 10");
     const decrementBtn = screen.getByTestId("decrement");
-    decrementBtn.click();
-    expect(screen.getByTestId("counter")).toHaveTextContent("Value = 9");
+    fireEvent.click(decrementBtn); //decrementBtn.click();
+    expect(await screen.findByTestId("counter")).toHaveTextContent("Value = 9");
   });
 });
