@@ -21,7 +21,7 @@ const Modal: React.FC<ModalProps> = ({className, children, onClose, isOpen}) => 
   const mods: Record<string, boolean> = {
     [styles.opened]: !!isOpen,
     [styles.isClosing]: !!isClosing,
-    [styles[theme]]: !!theme,
+    // [styles[theme]]: !!theme,
   };
 
   const closeHandler = useCallback(() => {
