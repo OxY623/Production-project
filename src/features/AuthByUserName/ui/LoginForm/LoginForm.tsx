@@ -1,26 +1,49 @@
-import React, {useState} from "react";
+import React, {memo, useCallback} from "react";
 import * as styles from "./LoginForm.module.scss";
 import {classNames} from "shared/libs/classNames/classNames";
 import {useTranslation} from "react-i18next";
 import {Button} from "shared/ui/Button/Button";
 import {Input} from "shared/ui/Input/Input";
+import {ThemeButton} from "shared/ui/Button/Button.types";
+import {useDispatch, useSelector} from "react-redux";
+import {loginActions} from "features/AuthByUserName/model/slice/loginSlice";
+import {selectLoginState} from "features/AuthByUserName/model/selectors/selectLoginState/selectLoginSate";
 
 type Props = {
   className?: string;
 };
 
-const LoginForm = ({className}: Props) => {
+const LoginForm = memo(({className}: Props) => {
   const {t} = useTranslation();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const LoginForm = useSelector(selectLoginState);
+  // const [userName, setUserName] = useState("");
+  // const [password, setPassword] = useState("");
 
-  const onChangeName = (value: string) => {
-    setUserName(value);
-  };
+  const onChangeName = useCallback(
+    (value: string) => {
+      // setUserName(value);
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const onChangePassword = (value: string) => {
-    setPassword(value);
-  };
+  const onChangePassword = useCallback(
+    (value: string) => {
+      // setPassword(value);
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
+
+  if (LoginForm.isLoading) {
+    return <div>Идет загрузка</div>;
+  }
+
+  if (LoginForm?.error && LoginForm?.error.length > 0) {
+    return <div>{LoginForm.error}</div>;
+  }
+
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -35,7 +58,7 @@ const LoginForm = ({className}: Props) => {
         className="styles.input"
         id="login"
         type="text"
-        value={userName}
+        value={LoginForm.username}
         onChange={onChangeName}
         placeholder={t("Введите логин")}
       />
@@ -47,13 +70,15 @@ const LoginForm = ({className}: Props) => {
         className="styles.input"
         id="password"
         type="password"
-        value={password}
+        value={LoginForm.password}
         onChange={onChangePassword}
         placeholder={t("Введите пароль")}
       />
-      <Button className="styles.loginBtn">{t("Войти")}</Button>
+      <Button theme={ThemeButton.OUTLINE} className="styles.loginBtn">
+        {t("Войти")}
+      </Button>
     </form>
   );
-};
+});
 
 export {LoginForm};

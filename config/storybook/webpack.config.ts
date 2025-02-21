@@ -15,11 +15,18 @@ export default ({config}: {config: webpack.Configuration}) => {
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push(".ts", ".tsx");
 
-  // config.resolve = config.resolve || {};
-  // config.resolve.alias = {
-  //   ...config.resolve.alias,
-  //   shared: path.resolve(__dirname, "../src/shared"),
-  // };
+  config.resolve = config.resolve || {};
+  config.resolve.alias = {
+    ...config.resolve.alias,
+    "@": paths.src, // добавляем общий алиас
+    entities: path.resolve(paths.src, "entities"), // алиас для entities
+  };
+
+  config.plugins?.push(
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(true),
+    }),
+  );
 
   config.module = config.module || {rules: []};
   config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
