@@ -17,6 +17,4 @@ https://oxy623.github.io/Production-project/
 - unit тестирование компонентов
 
 ### Errors
-
-
- -Нужно настроить загрузку json файлов с переводами.
+Каретка идет не четко при вводе инпута с type=password
