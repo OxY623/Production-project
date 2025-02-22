@@ -2,11 +2,14 @@ import {loginByUsername, LoginByUsernameProps, LoginResponse} from "./loginByUse
 import {configureStore} from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import axios from "axios";
-import MockAdapter from "axios-mock-adapter";
 import {USER_LOCALSTORAGE_TOKEN_KEY} from "shared/const/localStorage";
 import {StateSchema} from "app/providers/StoreProvider";
 import {createReduxStore} from "app/providers/StoreProvider";
-import {User, userActions} from "entities/User";
+import {userActions} from "entities/User";
+
+jest.mock("axios");
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const initialState: StateSchema = {
   user: {
@@ -22,12 +25,12 @@ const initialState: StateSchema = {
     isLoading: false,
   },
 };
-const mock = new MockAdapter(axios);
+
 const store = createReduxStore(initialState);
 
 describe("loginByUsername", () => {
   afterEach(() => {
-    mock.reset();
+    jest.clearAllMocks();
     localStorage.clear();
   });
 
@@ -39,7 +42,7 @@ describe("loginByUsername", () => {
       token,
     };
 
-    mock.onPost("http://localhost:8000/login").reply(200, loginResponse);
+    mockedAxios.post.mockResolvedValueOnce({data: loginResponse});
 
     const loginProps: LoginByUsernameProps = {username: "John Doe", password: "123"};
     const result = await store.dispatch(loginByUsername(loginProps));
@@ -53,7 +56,7 @@ describe("loginByUsername", () => {
   });
 
   test("should fail with invalid credentials", async () => {
-    mock.onPost("http://localhost:8000/login").reply(401);
+    mockedAxios.post.mockRejectedValueOnce({response: {status: 401}});
 
     const loginProps: LoginByUsernameProps = {username: "admin", password: "wrong-password"};
     const result = await store.dispatch(loginByUsername(loginProps));
