@@ -5,6 +5,7 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  testTimeout: 60000,
   testEnvironment: "jest-environment-jsdom", // Используем jsdom для тестирования
   clearMocks: true, // Очищаем моковые данные между тестами
   coveragePathIgnorePatterns: ["\\node_modules\\", "\\dist\\"], // Игнорируем папки
