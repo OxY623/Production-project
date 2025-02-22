@@ -11,6 +11,13 @@ describe("getCounter", () => {
       counter: {
         value: 10,
       },
+      user: {authData: {id: "1", username: "admin"}},
+      loginForm: {
+        username: "",
+        password: "",
+        error: undefined,
+        isLoading: false,
+      },
     };
 
     expect(getCounter(state as StateSchema)).toEqual({value: 10});

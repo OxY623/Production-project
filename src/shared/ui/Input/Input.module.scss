@@ -1,0 +1,68 @@
+.Input{
+  font-family: monospace !important;
+  width: auto;
+  display: flex;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+.wrapperInput{
+  flex-grow: 1;
+  position: relative;
+}
+
+.inputTmp {
+  font-family: monospace; 
+  font-size: 16px;
+  letter-spacing: 0;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  width: 100%;
+  color: transparent;
+  text-shadow: 0 0 0 var(--primary-color);
+  white-space: pre; 
+}
+
+.inputTmp::placeholder {
+  color: transparent
+}
+
+.inputTmp:focus, .inputTmp:hover, .inputTmp:disabled {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  text-shadow: 0 0 0 var(--primary-color);
+}
+
+.inputTmp:-webkit-autofill,
+.inputTmp:-webkit-autofill:hover,
+.inputTmp:-webkit-autofill:focus,
+.inputTmp:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s !important;
+  -webkit-text-fill-color: transparent !important;
+  background: transparent !important;
+  color: transparent !important;
+  box-shadow: none !important;
+  text-shadow: 0 0 0 var(--primary-color);
+}
+
+.carriage {
+  width: 2px;
+  height: 1em;
+  background-color: var(--primary-color);
+  bottom: 0;
+  left:0;
+  position: absolute;
+  animation: blink 1s forwards infinite;
+  transition: left 0.05s linear; 
+}
+
+@keyframes blink {
+  0%{opacity: 0;}
+  50%{opacity: 0.01;}
+  100%{opacity: 1;}
+}

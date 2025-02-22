@@ -37,7 +37,7 @@ jobs:
       - name: Check if Storybook build is successful
         run: ls -alh ./storybook-static
       - name: Wait for Storybook build to be available
-        run: sleep 10
+        run: sleep 60
       - name: Update reference screenshots
         run: npx loki update --reactUri="file:./storybook-static"
       - name: Screenshot testing

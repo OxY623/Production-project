@@ -5,6 +5,7 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  testTimeout: 60000,
   testEnvironment: "jest-environment-jsdom", // Используем jsdom для тестирования
   clearMocks: true, // Очищаем моковые данные между тестами
   coveragePathIgnorePatterns: ["\\node_modules\\", "\\dist\\"], // Игнорируем папки
@@ -18,10 +19,13 @@ module.exports = {
   rootDir: "../../", // Корень проекта
   setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
   moduleNameMapper: {
-    "^app/(.*)$": "<rootDir>/src/app/$1",
-    "\\.(css|scss)$": path.resolve(__dirname, "styleMock.ts"),
-    // "\\.s?css$": "identity-obj-proxy",
     "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+    "\\.(css|scss)$": path.resolve(__dirname, "styleMock.ts"),
+    "^entities/(.*)$": "<rootDir>/src/entities/$1",
+    "^shared/(.*)$": "<rootDir>/src/shared/$1",
+    "^widgets/(.*)$": "<rootDir>/src/widgets/$1",
+    "^app/(.*)$": "<rootDir>/src/app/$1",
+    // "\\.s?css$": "identity-obj-proxy",
   },
   testMatch: ["<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)"], // Шаблон поиска тестовых файлов
 };
