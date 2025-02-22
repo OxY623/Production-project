@@ -56,7 +56,9 @@
   "ts-node": {
     // Устанавливает тип модуля для ts-node (необходим для правильного импорта в некоторых случаях).
     "compilerOptions": {
-      "module": "CommonJS"
+      "module": "CommonJS",
+      "resolveJsonModule": true,
+      "esModuleInterop": true
     }
   },
 
