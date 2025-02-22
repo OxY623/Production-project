@@ -20,5 +20,10 @@
   "Забыли пароль": "Forgot password?",
   "Зарегистрироваться": "Sign up",
   "Введите логин": "Enter login",
-  "Введите пароль": "Enter password"
+  "Введите пароль": "Enter password",
+  "Идет загрузка": "Loading...",
+  "Форма авторизации": "Authorization form",
+  "Вы ввели неправильные данные": "You entered the wrong data",
+  "Привет": "Hello",
+  "Профиль": "Profile"
 }

@@ -1,4 +1,5 @@
 .Input{
+  font-family: monospace !important;
   width: auto;
   display: flex;
 }
@@ -13,17 +14,16 @@
 }
 
 .inputTmp {
-   font-family: monospace;
-   font-size: 16px; 
+  font-family: monospace; 
+  font-size: 16px;
+  letter-spacing: 0;
   background: transparent !important;
   border: none !important;
-  box-shadow: none !important;
   outline: none !important;
-  all: unset;
   width: 100%;
   color: transparent;
   text-shadow: 0 0 0 var(--primary-color);
-
+  white-space: pre; 
 }
 
 .inputTmp::placeholder {
@@ -51,13 +51,14 @@
 }
 
 .carriage {
-  width: 9px;
-  height: 3px;
+  width: 2px;
+  height: 1em;
   background-color: var(--primary-color);
   bottom: 0;
   left:0;
   position: absolute;
   animation: blink 1s forwards infinite;
+  transition: left 0.05s linear; 
 }
 
 @keyframes blink {

@@ -5,18 +5,20 @@ import {useTranslation} from "react-i18next";
 import {Button} from "shared/ui/Button/Button";
 import {Input} from "shared/ui/Input/Input";
 import {ThemeButton} from "shared/ui/Button/Button.types";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {loginActions} from "features/AuthByUserName/model/slice/loginSlice";
 import {selectLoginState} from "features/AuthByUserName/model/selectors/selectLoginState/selectLoginSate";
-
-type Props = {
+import {loginByUsername} from "features/AuthByUserName/model/services/loginByUsername/loginByUsername";
+import {useAppDispatch} from "app/providers/StoreProvider";
+import {Text, TextTheme} from "shared/ui/Text/Text";
+export type PropsLoginForm = {
   className?: string;
 };
 
-const LoginForm = memo(({className}: Props) => {
+const LoginForm = memo(({className}: PropsLoginForm) => {
   const {t} = useTranslation();
-  const dispatch = useDispatch();
-  const LoginForm = useSelector(selectLoginState);
+  const dispatch = useAppDispatch();
+  const {username, password, error, isLoading} = useSelector(selectLoginState);
   // const [userName, setUserName] = useState("");
   // const [password, setPassword] = useState("");
 
@@ -36,19 +38,16 @@ const LoginForm = memo(({className}: Props) => {
     [dispatch],
   );
 
-  if (LoginForm.isLoading) {
-    return <div>Идет загрузка</div>;
-  }
-
-  if (LoginForm?.error && LoginForm?.error.length > 0) {
-    return <div>{LoginForm.error}</div>;
-  }
+  const onLoginClick = useCallback(() => {
+    dispatch(loginByUsername({username, password}));
+  }, [dispatch, password, username]);
 
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
       className={classNames(styles.LoginForm, {}, [className])}
     >
+      <Text title={t("Форма авторизации")} />
       {/* <label className="styles.label" htmlFor="login">
         {t("Логин")}
       </label> */}
@@ -58,7 +57,7 @@ const LoginForm = memo(({className}: Props) => {
         className="styles.input"
         id="login"
         type="text"
-        value={LoginForm.username}
+        value={username}
         onChange={onChangeName}
         placeholder={t("Введите логин")}
       />
@@ -70,15 +69,26 @@ const LoginForm = memo(({className}: Props) => {
         className="styles.input"
         id="password"
         type="password"
-        value={LoginForm.password}
+        value={password}
         onChange={onChangePassword}
         placeholder={t("Введите пароль")}
       />
-      <Button theme={ThemeButton.OUTLINE} className="styles.loginBtn">
+      <Button
+        theme={ThemeButton.OUTLINE}
+        className="styles.loginBtn"
+        onClick={onLoginClick}
+        disabled={isLoading}
+      >
         {t("Войти")}
       </Button>
+      {error && error.length > 0 && (
+        <Text text={t("Вы ввели неправильные данные")} theme={TextTheme.ERROR} />
+      )}
     </form>
   );
 });
 
 export {LoginForm};
+// function loginByUsername(arg0: {username: string; password: string}): any {
+//   throw new Error("Function not implemented.");
+// }

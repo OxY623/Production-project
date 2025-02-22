@@ -96,6 +96,14 @@ export const SquareXL: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    children: ">",
+    theme: ThemeButton.OUTLINE,
+    disabled: true,
+  },
+};
+
 export const PrimaryDark: Story = {
   parameters: {theme: Theme.DARK},
   decorators: [ThemeDecorator],

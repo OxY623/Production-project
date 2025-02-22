@@ -13,12 +13,13 @@ const Button: React.FC<ButtonProps> = (props) => {
     [theme ? styles[theme as ThemeButton] : ""]: !!theme,
     [styles.square]: !!square,
     [styles[size as ButtonSize]]: !!size,
+    [styles.disabled]: !!otherProps.disabled,
   };
 
   const buttonClassName = classNames(styles.Button, mods, [className]);
 
   return (
-    <button {...otherProps} className={buttonClassName}>
+    <button disabled={otherProps.disabled} {...otherProps} className={buttonClassName}>
       <span>{children}</span>
     </button>
   );

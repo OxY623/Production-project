@@ -7,10 +7,13 @@ import {Sidebar} from "widgets/Sidebar";
 import React, {Suspense} from "react";
 //import {Modal} from "shared/ui/Modal/Modal";
 import {PageLoading} from "widgets/PageLoading/ui/PageLoading";
+import {useAuthInit} from "./providers/StoreProvider/hook/useAuth";
 
 const App: React.FC = () => {
   const {theme} = useTheme();
   // const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  useAuthInit();
 
   return (
     <div data-testid="app" className={classNames("app", {}, [theme])}>
