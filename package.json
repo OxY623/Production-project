@@ -160,7 +160,9 @@
       },
       "chrome.iphone7": {
         "target": "chrome.docker",
-        "preset": "iPhone 7"
+        "preset": "iPhone 7",
+        "startupTimeout": 60000,
+        "launchTimeout": 60000
       }
     },
     "timeout": 60000
