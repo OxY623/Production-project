@@ -152,6 +152,7 @@
       "chrome.laptop": {
         "target": "chrome.docker",
         "startupTimeout": 60000,
+        "launchTimeout": 60000,
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
